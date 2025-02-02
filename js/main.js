@@ -15,9 +15,13 @@ var gameData = {
     currentSkill: null,
     currentProperty: null,
     currentMisc: null,
+    lastSaveTimestamp: null,
 }
 
 var tempData = {}
+
+var gameOpenedTime = Math.round(Date.now() / 1000)
+var lastSaveBeforeOpen = null
 
 var skillWithLowestMaxXp = null
 
@@ -322,10 +326,46 @@ function getEvilGain() {
     return evil
 }
 
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+}
+
+function showOfflinePanel(offlineBonus, timeLeft) {
+    document.getElementById('offlinePanel').style.display = 'block';
+    document.getElementById('offlineBonusMult').innerHTML = offlineBonus.toFixed(2)
+    document.getElementById('offlineBonusTimer').innerHTML = formatTime(timeLeft)
+}
+
+function hideOfflinePanel() {
+    document.getElementById('offlinePanel').style.display = 'none';
+}
+
+function getOfflineBonus() {
+    let offlineBonus = 1;
+    if (lastSaveBeforeOpen) {
+        let offlineSeconds = gameOpenedTime - lastSaveBeforeOpen;
+        if (offlineSeconds > 60) {
+            if (offlineSeconds > 86400) offlineSeconds = 86400; // maximum a day
+            let boostDuration = 600; // bonus lasts 10 minutes
+            let timeLeft = gameOpenedTime + boostDuration - Math.round(Date.now() / 1000);
+            if (timeLeft < 0) {
+                hideOfflinePanel();
+            } else {
+                offlineBonus = 1 + (offlineSeconds / boostDuration);
+                showOfflinePanel(offlineBonus, timeLeft);
+            }
+        }
+    }
+    return offlineBonus;
+}
+
 function getGameSpeed() {
-    var timeWarping = gameData.taskData["Time warping"]
-    var timeWarpingSpeed = gameData.timeWarpingEnabled ? timeWarping.getEffect() : 1
-    var gameSpeed = baseGameSpeed * +!gameData.paused * +isAlive() * timeWarpingSpeed
+    var timeWarping = gameData.taskData["Time warping"];
+    var timeWarpingSpeed = gameData.timeWarpingEnabled ? timeWarping.getEffect() : 1;
+    let offlineBonus = getOfflineBonus();
+    var gameSpeed = baseGameSpeed * +!gameData.paused * +isAlive() * timeWarpingSpeed * offlineBonus
     return gameSpeed
 }
 
@@ -978,13 +1018,14 @@ function replaceSaveDict(dict, saveDict) {
 }
 
 function saveGameData() {
-    localStorage.setItem("gameDataSave", JSON.stringify(gameData))
+    localStorage.setItem("gameDataSave", JSON.stringify({...gameData, lastSaveTimestamp: Math.round(Date.now() / 1000)}))
 }
 
 function loadGameData() {
     var gameDataSave = JSON.parse(localStorage.getItem("gameDataSave"))
-
+    
     if (gameDataSave !== null) {
+        lastSaveBeforeOpen = gameDataSave.lastSaveTimestamp;
         replaceSaveDict(gameData, gameDataSave)
         replaceSaveDict(gameData.requirements, gameDataSave.requirements)
         replaceSaveDict(gameData.taskData, gameDataSave.taskData)

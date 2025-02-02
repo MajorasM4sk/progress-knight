@@ -17,3 +17,9 @@ Progress Knight can be played on the following sites:
 - [Github Pages](https://ihtasham42.github.io/progress-knight/)  
 - [Armor Games](https://armorgames.com/progress-knight-game/19095)
 - [Crazy Games](https://www.crazygames.com/game/progress-knight)
+
+### Fork update log
+
+#### 2025-02-02
+
+- Offline progress. You can store up to 24 hours of offline progress, but you have 10 minutes to use it while playing the game. Inspired by Heart of Galaxy: Horizons. You won't see the bonus if you closed the game less than a minute ago because it's basically pointless to actually have that minute back. Closing or reloading the page causes you to lose the offline bonus if you currently have it running, so do be careful about that.
