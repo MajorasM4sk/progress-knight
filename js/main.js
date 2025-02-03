@@ -293,10 +293,20 @@ function setCustomEffects() {
     }
 }
 
+function getWealthHapinessEffect(coins) {
+    //10b or 10kp coins
+    const minimum = 10000000000;
+    if (coins > minimum) {
+        return Math.pow(1.5, Math.log10(coins / minimum));
+    }
+    return 1;
+}
+
 function getHappiness() {
     var meditationEffect = getBindedTaskEffect("Meditation")
     var butlerEffect = getBindedItemEffect("Butler")
-    var happiness = meditationEffect() * butlerEffect() * gameData.currentProperty.getEffect()
+    let wealthEffect = getWealthHapinessEffect(gameData.coins)
+    var happiness = meditationEffect() * butlerEffect() * gameData.currentProperty.getEffect() * wealthEffect
     return happiness
 }
 
@@ -656,7 +666,7 @@ function updateText() {
     formatCoins(getIncome(), document.getElementById("incomeDisplay"))
     formatCoins(getExpense(), document.getElementById("expenseDisplay"))
 
-    document.getElementById("happinessDisplay").textContent = getHappiness().toFixed(1)
+    document.getElementById("happinessDisplay").textContent = getHappiness().toFixed(1) + (gameData.coins > 10000000000 ? ' 🤑' : '')
 
     document.getElementById("evilDisplay").textContent = gameData.evil.toFixed(1)
     document.getElementById("evilGainDisplay").textContent = getEvilGain().toFixed(1)

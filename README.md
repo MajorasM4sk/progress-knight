@@ -23,6 +23,14 @@ Progress Knight can be played on the following sites:
 
 ### Fork update log
 
+#### 2025-02-03
+
+- Wealth happiness bonus. You get a small hapiness bonus after your coins reach 10kp.
+- 1.5^log_10(coins / 10kp) raises 1.5 to that power if coins > 10kp, resulting in an 1.5x bonus every 10x coin increase after reaching 10kp.
+- So now, there's actually a point in accumulating a derisory amount of wealth!
+- A fun emoji will notify you that the bonus is taking effect...
+
 #### 2025-02-02
 
 - Offline progress. You can store up to 24 hours of offline progress, but you have 10 minutes to use it while playing the game. Inspired by Heart of Galaxy: Horizons. You won't see the bonus if you closed the game less than a minute ago because it's basically pointless to actually have that minute back. Closing or reloading the page causes you to lose the offline bonus if you currently have it running, so do be careful about that.
+- You won't be able to be 100% optimal during that 10 minutes, so it's still "better" to be actively playing. It's a very nice mechanic for players who have little time to play that I wish more idle games would implement.
