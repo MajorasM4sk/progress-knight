@@ -177,7 +177,7 @@ const tooltips = {
     "Evil control": "Tame the raging and growing evil within you, improving evil gain in-between rebirths.",
     "Intimidation": "Learn to emit a devilish aura which strikes extreme fear into other merchants, forcing them to give you heavy discounts.",
     "Demon training": "A mere human body is too feeble and weak to withstand evil. Train with forbidden methods to slowly manifest into a demon, capable of absorbing knowledge rapidly.",
-    "Blood meditation": "Grow and culture the evil within you through the sacrifise of other living beings, drastically increasing evil gain.",
+    "Blood meditation": "Grow and culture the evil within you through the sacrifice of other living beings, drastically increasing evil gain.",
     "Demon's wealth": "Through the means of dark magic, multiply the raw matter of the coins you receive from your job.",
 
     "Homeless": "Sleep on the uncomfortable, filthy streets while almost freezing to death every night. It cannot get any worse than this.",

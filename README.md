@@ -1,7 +1,7 @@
 # Progress Knight
 
 ### Introduction
-Progress Knight Name TBD is a text-based incremental game, developed by Ihtasham42 and extended by majorasm4sk, which can be played on your browser.
+Progress Knight: Oathbreaker is a text-based incremental game, developed by Ihtasham42 and extended by majorasm4sk, which can be played on your browser.
 
 ### What is Progress Knight about?
 Progress Knight is a life-sim incremental based in a fantasy/medieval setting, where you must progress through the career ladder and acquire new skills to become the ultimate being.
@@ -13,7 +13,7 @@ Will you decide to take the easy route of doing simple commoner work? Or will yo
 Eventually, your age will catch up to you. You will be given an option to prestige and gain xp multipliers (based on the performance of your current life) for your next life at the cost of losing all your levels and assets. Fear not though, as you will re-gain your levels much, much more quickly than in your previous life...
 
 ### Where can I play Progress Knight?
-Progress Knight Name TBD can be played on the following site: 
+Progress Knight: Oathbreaker can be played on the following site: 
 - [Guthub Pages](https://majorasm4sk.github.io/progress-knight/)
 
 Progress Knight can be played on the following sites:  
@@ -22,6 +22,9 @@ Progress Knight can be played on the following sites:
 - [Crazy Games](https://www.crazygames.com/game/progress-knight)
 
 ### Fork update log
+
+#### 2025-02-04
+- Found a name!
 
 #### 2025-02-03
 
