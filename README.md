@@ -24,6 +24,9 @@ Progress Knight can be played on the following sites:
 ### Fork update log
 
 #### 2025-02-04
+- Offline bonus panel aligned with other menus. Flexbox is love, flexbox is life.
+
+#### 2025-02-04
 - Found a name!
 
 #### 2025-02-03
